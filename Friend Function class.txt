@@ -1,0 +1,56 @@
+#include<iostream.h>
+#include<conio.h>
+class abc;
+class xyz
+{
+  private:
+  int b;
+  public:
+  void get();
+  void disp();
+
+friend void swap(xyz &,abc &)
+};
+	class abc
+	{
+		int a;
+		public:
+		void get();
+		void disp();
+	friend void swap(xyz &,abc &)
+	};
+	void abc::get()
+	{	cout<<"Enter the value: ";
+		cin>>a;
+	}
+	void abc::disp()
+	{	cout<<"value of a:"<<a<<endl;
+	}
+	void xyz::get()
+	{
+		cout<<"Enter data value: ";
+		cin>>b;
+	}
+	void xyz::disp()
+	{	cout<<"Value of b: "<<b<<endl;
+	}
+void swap(xyz &ob1,abc &ob2)
+{
+	int t;
+	t=ob1.b;
+	ob1.b=ob2.a;
+	ob2.a=t;
+	}
+void main()
+{	xyz x;
+	abc b;
+	x.get();
+	b.get();
+	x.disp();
+	b.disp();
+	swap(x,b);
+	x.disp();
+	b.disp();
+	getch();
+	clrscr();
+}

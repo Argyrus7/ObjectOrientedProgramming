@@ -1,0 +1,63 @@
+s#include<iostream.h>
+#include<conio.h>
+class lmn;
+class abc;
+class xyz
+{
+  private:
+  int b;
+  public:
+  void get();
+  void disp();
+
+friend void compare(xyz &,abc &,lmn &)
+};
+	class abc
+	{
+		int a;
+		public:
+		void get();
+	friend void compare(xyz &,abc &,lmn &)
+	};
+	class lmn
+	{	int c;
+		public:
+		void get();
+	friend void compare(xyz &,abc &,lmn &)
+	};
+	void abc::get()
+	{	cout<<"Enter the value: ";
+		cin>>a;
+	}
+	void xyz::get()
+	{
+		cout<<"Enter data value: ";
+		cin>>b;
+	}
+	void lmn::get()
+		{
+		cout<<"Enter data value: ";
+		cin>>c;
+		}
+void compare(xyz &ob1,abc &ob2,lmn &ob3)
+{
+	if(ob1.b>ob2.a&&ob1.b>ob3.c)
+	cout<<"A is the greatest";
+	else if(ob2.a>ob1.b &&ob2.a>ob3.c)
+	cout<<"B is the greatest";
+	else if(ob3.c>ob1.b &&ob3.c>ob2.a)
+	cout<<"C is the greatest";
+
+}
+void main()
+{	xyz x;
+	abc b;
+	lmn f;
+	x.get();
+	b.get();
+	f.get();
+	compare(x,b,f);
+	getch();
+	clrscr();
+}
+
